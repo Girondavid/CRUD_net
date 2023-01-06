@@ -13,7 +13,7 @@ namespace CrudApp.UserServices.Domain.ValueObjects
 
         public string ValidationPassword()
         {
-            string pattern = "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)[A-Za-z\\d]{8,}$";
+            string pattern = "^(?=.*[A-Z])(?=.*[a-z])[A-Za-z\\d]{8,}$";
             if(!Regex.IsMatch(this._password, pattern)){
                 throw new HttpResponseException(422, new { message = "The password must be at least 8 character with one uppercase"});
             }
